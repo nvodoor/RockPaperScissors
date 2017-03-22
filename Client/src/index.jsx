@@ -42,12 +42,42 @@ class Game extends React.Component {
   	}
   	if (this.state.player === 'rock' && this.state.comp === 'paper') {
   		return (
-  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp} Computer won! </div>
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won! </div>
   		)
   	}
   	if (this.state.player === 'rock' && this.state.comp === 'scissor') {
   		return (
-  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp} Player won! </div>
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
+  		)
+  	}
+  	if (this.state.player === 'scissor' && this.state.comp === 'rock') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won! </div>
+  		)
+  	}
+  	if (this.state.player === 'scissor' && this.state.comp === 'paper') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
+  		)
+  	}
+  	if (this.state.player === 'scissor' && this.state.comp === 'scissor') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Tied! </div>
+  		)
+  	}
+  	if (this.state.player === 'paper' && this.state.comp === 'rock') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
+  		)
+  	}
+  	if (this.state.player === 'paper' && this.state.comp === 'paper') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Tied! </div>
+  		)
+  	}
+  	if (this.state.player === 'paper' && this.state.comp === 'scissor') {
+  		return (
+  		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won! </div>
   		)
   	}
   }
