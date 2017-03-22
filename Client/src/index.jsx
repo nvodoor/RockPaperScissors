@@ -9,7 +9,9 @@ class Game extends React.Component {
 			player: '',
 			comp: '',
 			moves: ['rock', 'paper', 'scissor'],
-      rounds: 0
+      rounds: 0,
+      playerwin: 0,
+      compwin: 0
 		}
 	}
 
@@ -22,15 +24,42 @@ class Game extends React.Component {
 	}
 
   handleReRender() {
+      this.setState({
+        player: '',
+        comp: '',
+        rounds: this.state.rounds + 1
+      })
+  }
+
+  handleCompRender() {
     this.setState({
       player: '',
       comp: '',
+      winner: '',
+      compwin: this.state.compwin + 1,
       rounds: this.state.rounds + 1
     })
   }
 
+ handlePlayerRender() {
+    this.setState({
+      player: '',
+      comp: '',
+      playerwin: this.state.playerwin + 1,
+      rounds: this.state.rounds + 1
+    })
+ }
+
 
   render () {
+    if (this.state.rounds > 2) {
+      return (
+      <div>
+      <div> Game is over. Final Score: Player - {this.state.playerwin}. Computer - {this.state.compwin}.</div>
+      <button onClick = {() => this.setState({compwin: 0, playerwin: 0, rounds: 0})}>Click to play Again.</button>
+      </div>
+      )
+    }
   	if (this.state.player === '' || this.state.comp === '') {
   		return (
 		<div>
@@ -45,7 +74,7 @@ class Game extends React.Component {
     </div>
     <h4>Rounds Played: {this.state.rounds} </h4>
 		</div>
-	)
+	   )
   	} 
   	if (this.state.player === 'rock' && this.state.comp === 'rock') {
   		return (
@@ -59,7 +88,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won!</div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handleCompRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
@@ -67,7 +96,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handlePlayerRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
@@ -75,7 +104,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won! </div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handleCompRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
@@ -83,7 +112,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handlePlayerRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
@@ -99,7 +128,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Player won! </div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handlePlayerRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
@@ -115,7 +144,7 @@ class Game extends React.Component {
   		return (
       <div>
   		<div> Player chose: {this.state.player}. Computer chose: {this.state.comp}. Computer won! </div>
-      <button onClick={this.handleReRender.bind(this)}>Click to Play Again!</button>
+      <button onClick={this.handleCompRender.bind(this)}>Click to Play Again!</button>
       </div>
   		)
   	}
